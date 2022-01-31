@@ -2,20 +2,20 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const PrimeraApp = ({saludo, subtitulo}) => {
-    // const saludo ="Hola koders"
-    
-    return (
-        <>
-            <h1>{saludo}</h1>
-            <p>{subtitulo}</p>
-        </>
-        )
+const PrimeraApp = ({ saludo, subtitulo }) => {
+  // const saludo ="Hola koders"
+
+  return (
+    <>
+      <h1>{saludo}¡¡¡</h1>
+      <p>{subtitulo}</p>
+    </>
+  )
 }
-PrimeraApp.protoTypes={
-    saludo:PropTypes.string.isRequired
+PrimeraApp.protoTypes = {
+  saludo: PropTypes.string.isRequired
 }
-PrimeraApp.protoTypes={
-    subtitulo:"subtitulo"
+PrimeraApp.protoTypes = {
+  subtitulo: 'subtitulo'
 }
-export default PrimeraApp;
+export default PrimeraApp
