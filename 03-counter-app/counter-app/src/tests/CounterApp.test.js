@@ -39,8 +39,6 @@ describe('Pruebas en Elemento CounterApp', () => {
     const valor = 100
     const wrapper = shallow(<CounterApp value={valor} />)
     wrapper.find('button').at(0).simulate('click')
-    const add = wrapper.find('h2').text()
-    expect(add).toBe('101')
     wrapper.find('button').at(1).simulate('click')
     const counterText = wrapper.find('h2').text()
     expect(valor).toBe(100)
