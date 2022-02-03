@@ -27,7 +27,7 @@ function CounterApp ({ value }) {
   )
 }
 
-CounterApp.protoTypes = {
+CounterApp.propTypes = {
   value: PropTypes.number
 }
 export default CounterApp
