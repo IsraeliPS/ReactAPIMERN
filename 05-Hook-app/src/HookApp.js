@@ -2,7 +2,11 @@ import React from 'react'
 
 function HookApp () {
   return (
-    <div>HookApp</div>
+    <div>
+      <h1>
+        HookApp
+      </h1>
+    </div>
   )
 }
 
