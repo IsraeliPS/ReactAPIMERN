@@ -1,9 +1,12 @@
 import React from 'react'
-import { Link, NavLink } from 'react-router-dom'
+import { Link, NavLink, useNavigate } from 'react-router-dom'
 
 export const NavBar = () => {
+  const navigate = useNavigate()
   const handleLogout = () => {
-    console.log('logout')
+    navigate('/login', {
+      replace: true
+    })
   }
 
   return (
@@ -20,17 +23,23 @@ export const NavBar = () => {
         <div className='navbar-nav'>
 
           <NavLink
-            className={({ isActive }) => 'nav-item nav-link' + (isActive ? 'active' : '')}
+            className={({ isActive }) => 'nav-item nav-link' + (isActive && 'active')}
             to='/marvel'
           >
             Marvel
           </NavLink>
 
           <NavLink
-            className={({ isActive }) => 'nav-item nav-link' + (isActive ? 'active' : '')}
+            className={({ isActive }) => 'nav-item nav-link' + (isActive && 'active')}
             to='/dc'
           >
             DC
+          </NavLink>
+          <NavLink
+            className={({ isActive }) => 'nav-item nav-link' + (isActive && 'active')}
+            to='/search'
+          >
+            Search
           </NavLink>
         </div>
       </div>
