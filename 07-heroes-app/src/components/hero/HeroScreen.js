@@ -12,11 +12,11 @@ export const HeroScreen = () => {
     navigate(-1)
   }
 
-  const { id, superhero, publisher, alter_ego, first_appearance, characters } = hero
-
   if (!hero) {
     return <Navigate to='/' />
   }
+
+  const { id, superhero, publisher, alter_ego, first_appearance, characters } = hero
 
   const imagePath = `/assets/${id}.jpg`
   return (
