@@ -1,6 +1,6 @@
 import React from 'react'
 import { Route, Routes } from 'react-router-dom'
-import { DcScreen } from '../components/hero/DcScreen'
+import { DcScreen } from '../components/dc/DcScreen'
 import { HeroScreen } from '../components/hero/HeroScreen'
 import { MarvelScreen } from '../components/marvel/MarvelScreen'
 import { SearchScreen } from '../components/search/SearchScreen'
