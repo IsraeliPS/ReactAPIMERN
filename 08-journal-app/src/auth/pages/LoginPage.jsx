@@ -1,51 +1,55 @@
+import { useMemo } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+
 import { Link as RouterLink } from 'react-router-dom';
 import {
   Alert,
-  Grid,
-  Typography,
-  TextField,
   Button,
+  Grid,
   Link,
+  TextField,
+  Typography,
 } from '@mui/material';
 import { Google } from '@mui/icons-material';
+
 import { AuthLayout } from '../layout/AuthLayout';
-import { useForm } from '../../hooks/useForm';
+
+import { useForm } from '../../hooks';
 import {
-  checkingAuthentication,
   startGoogleSignIn,
   startLoginWithEmailPassword,
 } from '../../store/auth';
-import { useDispatch, useSelector } from 'react-redux';
-import { useMemo } from 'react';
+
+
+const formData = {
+  email: '',
+  password: ''
+}
 
 export const LoginPage = () => {
-  const dispatch = useDispatch();
-
   const { status, errorMessage } = useSelector((state) => state.auth);
 
-  const { email, password, onInputChange } = useForm({
-    email: 'israeli.ps@gmail.com',
-    password: '123456',
-  });
+  const dispatch = useDispatch();
+  const { email, password, onInputChange } = useForm(formData);
 
-  const isAuthenticated = useMemo(() => status === 'checking', [status]);
+  const isAuthenticating = useMemo(() => status === 'checking', [status]);
 
   const onSubmit = (event) => {
     event.preventDefault();
 
-    dispatch(checkingAuthentication());
-
     dispatch(startLoginWithEmailPassword({ email, password }));
   };
 
-  const onGooleSignIn = (event) => {
+  const onGoogleSignIn = () => {
     dispatch(startGoogleSignIn());
-    console.log('onGooleSignIn');
   };
 
   return (
     <AuthLayout title='Login'>
-      <form onSubmit={onSubmit}>
+      <form
+        onSubmit={onSubmit}
+        className='animate__animated animate__fadeIn animate__faster'
+      >
         <Grid container>
           <Grid item xs={12} sx={{ mt: 2 }}>
             <TextField
@@ -68,14 +72,10 @@ export const LoginPage = () => {
               name='password'
               value={password}
               onChange={onInputChange}
-            ></TextField>
+            />
           </Grid>
 
-          <Grid
-            container
-            sx={{ mt: 1 }}
-            display={!!errorMessage ? '' : 'none'}
-          >
+          <Grid container display={!!errorMessage ? '' : 'none'} sx={{ mt: 1 }}>
             <Grid item xs={12}>
               <Alert severity='error'>{errorMessage}</Alert>
             </Grid>
@@ -84,21 +84,20 @@ export const LoginPage = () => {
           <Grid container spacing={2} sx={{ mb: 2, mt: 1 }}>
             <Grid item xs={12} sm={6}>
               <Button
+                disabled={isAuthenticating}
+                type='submit'
                 variant='contained'
                 fullWidth
-                type='submit'
-                disabled={isAuthenticated}
               >
                 Login
               </Button>
             </Grid>
-
             <Grid item xs={12} sm={6}>
               <Button
+                disabled={isAuthenticating}
                 variant='contained'
                 fullWidth
-                onClick={onGooleSignIn}
-                disabled={isAuthenticated}
+                onClick={onGoogleSignIn}
               >
                 <Google />
                 <Typography sx={{ ml: 1 }}>Google</Typography>

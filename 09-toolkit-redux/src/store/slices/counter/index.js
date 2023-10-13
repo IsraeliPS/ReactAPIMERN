@@ -1,1 +1,2 @@
-export * from './templateSlice';
+export * from './counterSlice';
+
