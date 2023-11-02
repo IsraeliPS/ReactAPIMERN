@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Pruebas de <SearchPage /> debe de mostrarse correctamente con valores por defecto 1`] = `
+exports[`Pruebas en <SearchPage /> debe de mostrarse correactamente con valores por defecto 1`] = `
 <div>
   <h1>
     Search

@@ -1,10 +1,15 @@
-import { types } from "../../../src/auth";
+import { types } from "../../../src/auth/types/types";
 
-describe('Pruebas en types', () => {
-  test('debe de regresar los types', () => {
-    expect(types).toEqual({
-      login: '[Auth] Login',
-      logout: '[Auth] Logout',
+
+describe('Pruebas en "Types.js"', () => {
+    
+    test('debe de regresar estos types', () => {
+
+        expect(types).toEqual({
+            login:  '[Auth] Login',
+            logout: '[Auth] Logout',
+        })
+        
     });
-  });
+
 });

@@ -26,7 +26,6 @@ export const SearchPage = () => {
   const onSearchSubmit = (event) =>{
     event.preventDefault();
     // if ( searchText.trim().length <= 1 ) return;
-
     navigate(`?q=${ searchText }`);
   }
 
@@ -41,7 +40,7 @@ export const SearchPage = () => {
           <div className="col-5">
             <h4>Searching</h4>
             <hr />
-            <form aria-label='form' onSubmit={ onSearchSubmit }>
+            <form onSubmit={ onSearchSubmit } aria-label="form">
               <input 
                 type="text"
                 placeholder="Search a hero"
